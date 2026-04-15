@@ -1,0 +1,124 @@
+/**
+ * @file: profile.config.ts
+ * @author: Tejas (Full Stack + GenAI Engineer)
+ * @summary: A performance-driven MERN & GenAI engineer building scalable, intelligent systems.
+ */
+
+// --------------------------------------------------
+// 1. CORE DEPENDENCIES & SKILLS
+// --------------------------------------------------
+
+const TECH_STACK = {
+  frontend: [
+    "React.js",        // 95%
+    "Next.js",         // 90%
+    "TailwindCSS",     // 95%
+    "GSAP",            // 90%
+    "Three.js",        // 75%
+    "D3.js",           // 70%
+  ],
+  backend: [
+    "Node.js",         // 95%
+    "Express.js",      // 90%
+    "MongoDB",         // 90%
+    "Redis",           // 80%
+    "REST APIs",       // 95%
+  ],
+  ai_genai: [
+    "Prompt Engineering",   // 95%
+    "OpenAI APIs",          // 90%
+    "Vector Databases",     // 80%
+    "RAG Systems",          // 85%
+    "Embeddings",           // 85%
+  ],
+  tools: ["Git", "Docker", "AWS", "Linux", "Figma", "Postman"]
+};
+
+// --------------------------------------------------
+// 2. EXPERIENCE LOG (Reverse Chronological)
+// --------------------------------------------------
+
+class ProfessionalHistory {
+
+  /** * CURRENT ROLE
+   * @period 2025 - Present
+   */
+  public async Self_Employed(): Promise<Impact> {
+    const role = "Full Stack MERN + GenAI Developer";
+
+    // Key Achievements
+    const projects = await build([
+      "AI-powered SaaS Apps",
+      "Full-stack MERN platforms",
+      "Interactive GSAP-based websites",
+      "RAG-based intelligent systems"
+    ]);
+
+    const performance = "Optimized apps with lazy loading, caching & API efficiency";
+    const architecture = "Built scalable REST + AI-integrated systems";
+
+    return { role, projects, architecture, performance };
+  }
+
+  /** * PREVIOUS PHASE
+   * @period 2023 - 2025
+   */
+  public Learning_Phase(): void {
+    this.role = "Full Stack Developer (MERN)";
+    this.focus = "Deep System Building + Problem Solving";
+
+    // Built 50+ projects (frontend + backend + AI)
+    // Mastered GSAP animations & modern UI systems
+    // Explored AI integrations, prompt engineering, embeddings
+  }
+}
+
+// --------------------------------------------------
+// 3. COMPETITIVE ACHIEVEMENTS
+// --------------------------------------------------
+
+interface HackathonWin {
+  rank: number;
+  event: string;
+  project: string;
+}
+
+const trophyCabinet: HackathonWin[] = [
+  {
+    rank: 1,
+    event: "Personal Project Milestone",
+    project: "Built 50+ Full Stack + AI Projects",
+  },
+  {
+    rank: 1,
+    event: "Self Growth Challenge",
+    project: "Mastered MERN + GenAI + System Design",
+  }
+];
+
+// --------------------------------------------------
+// 4. ACADEMIC BACKGROUND
+// --------------------------------------------------
+
+const education = new Map<string, string>([
+  ["Self-Taught Engineer", "Full Stack MERN + GenAI Specialization"],
+  ["Continuous Learning", "System Design, AI, Scalable Architectures"]
+]);
+
+export default new ProfessionalHistory();
+
+
+// --------------------------------------------------
+// TERMINAL OUTPUT
+// --------------------------------------------------
+
+/*
+$ user --status
+> Name: Tejas
+> Role: Full Stack MERN + GenAI Developer
+> Status: Open to Opportunities
+> Location: Remote / India
+> Skills: MERN | AI | GSAP | System Design
+> Loading Assets... [||||||||||] 100%
+> Ready.
+*/
