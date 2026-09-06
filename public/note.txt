@@ -1,124 +1,216 @@
 /**
  * @file: profile.config.ts
- * @author: Tejas (Full Stack + GenAI Engineer)
- * @summary: A performance-driven MERN & GenAI engineer building scalable, intelligent systems.
+ * @author: Tejas Yadav
+ * @role: Full Stack MERN + GenAI Developer
+ * @contact: tejasyadav765@gmail.com | +91 8726567030
+ * @socials: github.com/tejascode8 | linkedin.com/in/tejas-yadav-60837a406
+ * @portfolio: tejas-portfolio-five-alpha.vercel.app
+ * @summary: Full-Stack Developer focused on building intelligent and scalable web applications
+ *           using the MERN Stack and Generative AI. Strong foundation in frontend/backend development,
+ *           AI integrations, real-time applications, AWS/cloud deployment, and system design.
  */
 
 // --------------------------------------------------
-// 1. CORE DEPENDENCIES & SKILLS
+// 1. TECHNICAL SKILLS & STACK
 // --------------------------------------------------
 
-const TECH_STACK = {
+interface TechStack {
+  languages: string[];
+  frontend: string[];
+  backend: string[];
+  databases: string[];
+  artificial_intelligence: string[];
+  cloud_and_devops: string[];
+  tools_and_ecosystem: string[];
+}
+
+const TECH_STACK: TechStack = {
+  languages: ["JavaScript (ES6+)"],
   frontend: [
-    "React.js",        // 95%
-    "Next.js",         // 90%
-    "TailwindCSS",     // 95%
-    "GSAP",            // 90%
-    "Three.js",        // 75%
-    "D3.js",           // 70%
+    "React.js",
+    "Vite",
+    "Tailwind CSS",
+    "HTML5",
+    "CSS3",
+    "SCSS/SASS",
   ],
   backend: [
-    "Node.js",         // 95%
-    "Express.js",      // 90%
-    "MongoDB",         // 90%
-    "Redis",           // 80%
-    "REST APIs",       // 95%
+    "Node.js",
+    "Express.js",
+    "REST APIs",
+    "Microservices Architecture",
+    "WebSockets",
+    "Socket.IO",
   ],
-  ai_genai: [
-    "Prompt Engineering",   // 95%
-    "OpenAI APIs",          // 90%
-    "Vector Databases",     // 80%
-    "RAG Systems",          // 85%
-    "Embeddings",           // 85%
+  databases: [
+    "MongoDB",
+    "Mongoose",
+    "Redis",
   ],
-  tools: ["Git", "Docker", "AWS", "Linux", "Figma", "Postman"]
+  artificial_intelligence: [
+    "Generative AI",
+    "Agentic AI",
+    "RAG (Retrieval-Augmented Generation)",
+    "Embeddings & Vector Search (Qdrant)",
+    "Semantic Search & NLP",
+    "LangChain & LangGraph",
+    "Computer Vision & MediaPipe",
+  ],
+  cloud_and_devops: [
+    "AWS (ECS, EC2, ECR, ALB)",
+    "Docker & Containerization",
+    "CI/CD Pipelines",
+  ],
+  tools_and_ecosystem: [
+    "Git",
+    "GitHub",
+    "Redux Toolkit",
+    "Zustand",
+    "BullMQ",
+    "JWT & OAuth & Bcrypt",
+    "ImageKit",
+    "Firebase",
+  ]
 };
 
 // --------------------------------------------------
-// 2. EXPERIENCE LOG (Reverse Chronological)
+// 2. FEATURED PRODUCTION PROJECTS
 // --------------------------------------------------
 
-class ProfessionalHistory {
-
-  /** * CURRENT ROLE
-   * @period 2025 - Present
-   */
-  public async Self_Employed(): Promise<Impact> {
-    const role = "Full Stack MERN + GenAI Developer";
-
-    // Key Achievements
-    const projects = await build([
-      "AI-powered SaaS Apps",
-      "Full-stack MERN platforms",
-      "Interactive GSAP-based websites",
-      "RAG-based intelligent systems"
-    ]);
-
-    const performance = "Optimized apps with lazy loading, caching & API efficiency";
-    const architecture = "Built scalable REST + AI-integrated systems";
-
-    return { role, projects, architecture, performance };
-  }
-
-  /** * PREVIOUS PHASE
-   * @period 2023 - 2025
-   */
-  public Learning_Phase(): void {
-    this.role = "Full Stack Developer (MERN)";
-    this.focus = "Deep System Building + Problem Solving";
-
-    // Built 50+ projects (frontend + backend + AI)
-    // Mastered GSAP animations & modern UI systems
-    // Explored AI integrations, prompt engineering, embeddings
-  }
+interface Project {
+  name: string;
+  tagline: string;
+  liveUrl: string;
+  techStack: string[];
+  highlights: string[];
 }
 
-// --------------------------------------------------
-// 3. COMPETITIVE ACHIEVEMENTS
-// --------------------------------------------------
-
-interface HackathonWin {
-  rank: number;
-  event: string;
-  project: string;
-}
-
-const trophyCabinet: HackathonWin[] = [
+const FEATURED_PROJECTS: Project[] = [
   {
-    rank: 1,
-    event: "Personal Project Milestone",
-    project: "Built 50+ Full Stack + AI Projects",
+    name: "intervAI",
+    tagline: "AI-Powered Career Preparation Platform",
+    liveUrl: "https://intervai-24vu.onrender.com",
+    techStack: [
+      "React",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Redis",
+      "Firebase",
+      "LangChain",
+      "LangGraph",
+      "Qdrant",
+      "Docker",
+      "AWS",
+    ],
+    highlights: [
+      "AI mock interview simulations with dynamic evaluation",
+      "RAG-based automated resume analysis and personalized learning roadmaps",
+      "Razorpay payment gateway integration for credit systems",
+      "Scalable microservices architecture with unified API Gateway",
+    ],
   },
   {
-    rank: 1,
-    event: "Self Growth Challenge",
-    project: "Mastered MERN + GenAI + System Design",
-  }
+    name: "LocoMap",
+    tagline: "Real-Time Train Tracking & Route Visualization",
+    liveUrl: "https://loco-map-rho.vercel.app",
+    techStack: [
+      "React",
+      "Tailwind CSS",
+      "Zustand",
+      "Framer Motion",
+      "MapTiler",
+      "REST APIs",
+    ],
+    highlights: [
+      "Live railway tracking with interactive map overlays and delay analytics",
+      "Dynamic weather conditions, terrain/POI elevation profiling",
+      "High-performance responsive UI with glassmorphism & SVG data visualizations",
+    ],
+  },
+  {
+    name: "Perplexity",
+    tagline: "AI-Driven Research & Chat Platform",
+    liveUrl: "https://perplexity-ai-kzpm.onrender.com",
+    techStack: [
+      "React",
+      "Vite",
+      "Redux Toolkit",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Socket.IO",
+      "LangChain",
+      "Mistral AI",
+      "Tavily",
+      "JWT",
+      "Tailwind CSS",
+    ],
+    highlights: [
+      "Context-aware real-time chat with AI web research capabilities",
+      "Secure JWT authentication, email verification & persistent session history",
+      "Automated conversation summarization & user-scoped protected data",
+    ],
+  },
 ];
 
 // --------------------------------------------------
-// 4. ACADEMIC BACKGROUND
+// 3. ACADEMIC BACKGROUND & CREDENTIALS
 // --------------------------------------------------
 
-const education = new Map<string, string>([
-  ["Self-Taught Engineer", "Full Stack MERN + GenAI Specialization"],
-  ["Continuous Learning", "System Design, AI, Scalable Architectures"]
-]);
+interface Education {
+  degree: string;
+  institution: string;
+  location: string;
+  duration: string;
+  score: string;
+}
 
-export default new ProfessionalHistory();
-
+const EDUCATION_HISTORY: Education[] = [
+  {
+    degree: "Master of Computer Applications (MCA)",
+    institution: "AKTU Lucknow, Uttar Pradesh",
+    location: "Uttar Pradesh, India",
+    duration: "July 2024 – June 2026",
+    score: "8.1 / 10 CGPA",
+  },
+  {
+    degree: "Bachelor of Science (B.Sc.)",
+    institution: "PRSU Allahabad, Uttar Pradesh",
+    location: "Uttar Pradesh, India",
+    duration: "May 2021 – June 2024",
+    score: "7.2 / 10 CGPA",
+  },
+];
 
 // --------------------------------------------------
-// TERMINAL OUTPUT
+// 4. DEVELOPER PROFILE EXPORT & STATUS
 // --------------------------------------------------
+
+export default class DeveloperProfile {
+  public readonly name = "Tejas Yadav";
+  public readonly title = "Full-Stack & Generative AI Developer";
+  public readonly availability = "Open to Opportunities";
+  public readonly stack = TECH_STACK;
+  public readonly projects = FEATURED_PROJECTS;
+  public readonly education = EDUCATION_HISTORY;
+
+  public getSummary(): string {
+    return (
+      "Full-Stack Developer focused on building intelligent and scalable web applications " +
+      "using the MERN Stack and Generative AI, cloud deployment on AWS, and real-time systems."
+    );
+  }
+}
 
 /*
-$ user --status
-> Name: Tejas
+$ tejas --status --verbose
+> Developer: Tejas Yadav
 > Role: Full Stack MERN + GenAI Developer
+> Focus: Scalable Web Apps | RAG & Agentic AI | Microservices | Cloud Deployment
+> Location: Uttar Pradesh, India (Open to Remote / Relocation)
+> Contact: tejasyadav765@gmail.com | +91 8726567030
+> GitHub: https://github.com/tejascode8
+> LinkedIn: https://linkedin.com/in/tejas-yadav-60837a406
 > Status: Open to Opportunities
-> Location: Remote / India
-> Skills: MERN | AI | GSAP | System Design
-> Loading Assets... [||||||||||] 100%
-> Ready.
 */

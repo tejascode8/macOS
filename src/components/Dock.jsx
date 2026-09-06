@@ -57,7 +57,7 @@ const Dock = ({ windowsState, setWindowsState }) => {
       </div>
       <div
         onClick={() => {
-          window.open("https://wa.me/8726567030", "_blank");
+          window.open("https://linkedin.com/in/tejas-yadav-60837a406", "_blank");
         }}
         className="icon link"
       >

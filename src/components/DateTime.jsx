@@ -6,16 +6,18 @@ const DateTime = () => {
   useEffect(() => {
     const updateDateTime = () => {
       const now = new Date()
-      const formattedDateTime = now.toLocaleString('en-US', {
-        weekday: 'short',
-        month: 'short',
-        day: 'numeric',
+      
+      const weekday = now.toLocaleDateString('en-US', { weekday: 'short' })
+      const month = now.toLocaleDateString('en-US', { month: 'short' })
+      const day = now.getDate()
+      const time = now.toLocaleTimeString('en-US', {
         hour: 'numeric',
         minute: '2-digit',
-        hour12: true
-      }).toLowerCase().replace(/,/g, '')
-      
-      setDateTime(formattedDateTime)
+        hour12: true,
+      })
+
+      // Format: "Sun 6 Sep 6:07 PM" (Date before Month)
+      setDateTime(`${weekday} ${day} ${month} ${time}`)
     }
 
     updateDateTime()
@@ -25,7 +27,7 @@ const DateTime = () => {
   }, [])
 
   return (
-    <div>{dateTime}</div>
+    <div className="date-time">{dateTime}</div>
   )
 }
 
