@@ -262,9 +262,10 @@ Contributions are welcome! Here's how you can help:
 
 **Tejas Yadav**
 
-- GitHub: [@tejasyadav](https://github.com/tejasyadav)
+- GitHub: [@tejascode8](https://github.com/tejascode8)
+- LinkedIn: [tejas-yadav-60837a406](https://linkedin.com/in/tejas-yadav-60837a406)
 - Email: tejasyadav765@gmail.com
-- Portfolio: [mac-os-simulation.netlify.app](https://mac-os-simulation.netlify.app)
+- Portfolio: [tejas-portfolio-five-alpha.vercel.app](https://tejas-portfolio-five-alpha.vercel.app)
 
 ---
 

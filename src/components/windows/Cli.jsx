@@ -3,7 +3,7 @@ import MacWindow from "./MacWindow";
 import Terminal from "react-console-emulator";
 import "./cli.scss";
 
-const Cli = ({ windowName, setWindowsState }) => {
+const Cli = ({ windowName, setWindowsState, zIndex, onFocus }) => {
   const commands = {
     about: {
       description: "About me",
@@ -134,8 +134,8 @@ Portfolio: https://tejas-portfolio-five-alpha.vercel.app`,
 
   const welcomeMessage = `
 ╔════════════════════════════════════════════════════════════════════════════╗
-║                  Tejas Yadav — Terminal Portfolio v2.0                     ║
-║              Full-Stack Developer (MERN Stack + Generative AI)             ║
+║                  Tejas Yadav — Terminal Portfolio v2.0                     
+║              Full-Stack Developer (MERN Stack + Generative AI)             
 ╚════════════════════════════════════════════════════════════════════════════╝
 
 Hello! 👋 Welcome to my interactive macOS Terminal.
@@ -157,7 +157,16 @@ Happy exploring! 🚀
 `;
 
   return (
-    <MacWindow windowName={windowName} setWindowsState={setWindowsState}>
+    <MacWindow
+      windowName={windowName}
+      setWindowsState={setWindowsState}
+      zIndex={zIndex}
+      onFocus={onFocus}
+      width="54vw"
+      height="65vh"
+      defaultX={240}
+      defaultY={90}
+    >
       <div className="cli-window">
         <Terminal
           commands={commands}

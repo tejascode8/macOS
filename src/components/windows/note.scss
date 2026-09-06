@@ -1,13 +1,80 @@
-.note-window{
-    padding: 1rem;
-    height: 100%;
-    overflow-y: auto;
-    padding-bottom: 10rem;
+.note-window-wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #1a1a1e;
+  overflow: hidden;
 
-    font-size: 1.1rem;
+  .note-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.55rem 1rem;
+    background: #232328;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    flex-shrink: 0;
 
+    .file-info {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
 
-    pre{
-        background-color: transparent !important;
+      .ts-badge {
+        background: #3178c6;
+        color: white;
+        font-size: 0.68rem;
+        font-weight: 700;
+        padding: 0.15rem 0.4rem;
+        border-radius: 0.25rem;
+      }
+
+      .filename {
+        font-size: 0.82rem;
+        color: #f4f4f5;
+        font-weight: 500;
+        font-family: monospace;
+      }
+
+      .line-count {
+        font-size: 0.75rem;
+        color: #71717a;
+        margin-left: 0.25rem;
+      }
     }
+
+    .copy-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.78rem;
+      padding: 0.28rem 0.65rem;
+      border-radius: 0.35rem;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #e4e4e7;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.15s ease;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.15);
+        color: #ffffff;
+      }
+    }
+  }
+
+  .note-content {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding-bottom: 4rem;
+
+    .loading-state {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      color: #71717a;
+      font-size: 0.9rem;
+    }
+  }
 }

@@ -179,7 +179,7 @@ const GitCard = ({ data }) => {
   );
 };
 
-const Github = ({ windowName, setWindowsState }) => {
+const Github = ({ windowName, setWindowsState, zIndex, onFocus }) => {
   const [projects, setProjects] = useState(defaultGithubData);
   const [userProfile, setUserProfile] = useState({
     name: "TEJAS",
@@ -327,7 +327,16 @@ const Github = ({ windowName, setWindowsState }) => {
   }, [projects, searchQuery, selectedLanguage]);
 
   return (
-    <MacWindow windowName={windowName} setWindowsState={setWindowsState}>
+    <MacWindow
+      windowName={windowName}
+      setWindowsState={setWindowsState}
+      zIndex={zIndex}
+      onFocus={onFocus}
+      width="68vw"
+      height="78vh"
+      defaultX={160}
+      defaultY={50}
+    >
       <div className="github-window">
         {/* GitHub User Header */}
         <div className="github-header">
