@@ -1,9 +1,12 @@
 import React from "react";
 import MacWindow from "./MacWindow";
 import Terminal from "react-console-emulator";
+import { useLoader } from "../loader/LoaderContext";
 import "./cli.scss";
 
 const Cli = ({ windowName, setWindowsState, zIndex, onFocus }) => {
+  const { reboot } = useLoader();
+
   const commands = {
     about: {
       description: "About me",
@@ -125,6 +128,22 @@ Location: Uttar Pradesh, India (Open to Remote / Relocation)`,
 LinkedIn:  https://linkedin.com/in/tejas-yadav-60837a406
 Portfolio: https://tejas-portfolio-five-alpha.vercel.app`,
     },
+    reboot: {
+      description: "Reboot macOS system and replay startup sequence",
+      usage: "reboot",
+      fn: () => {
+        setTimeout(() => reboot(), 350);
+        return "Initiating macOS system reboot...";
+      },
+    },
+    restart: {
+      description: "Restart macOS simulation",
+      usage: "restart",
+      fn: () => {
+        setTimeout(() => reboot(), 350);
+        return "Restarting macOS...";
+      },
+    },
     echo: {
       description: "Echo a passed string",
       usage: "echo <string>",
@@ -148,6 +167,7 @@ Type 'help' to see all commands, or try one of these:
   • education   - Check academic background and degrees
   • contact     - Get email, phone & location details
   • social      - View GitHub, LinkedIn & portfolio links
+  • reboot      - Reboot macOS simulation & view boot loader
   • resume      - Open / download my official resume PDF
   • github      - Jump directly to my GitHub profile
   • linkedin    - Connect with me on LinkedIn

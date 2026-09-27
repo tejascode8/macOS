@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./nav.scss";
 import DateTime from "./DateTime";
+import { useLoader } from "./loader/LoaderContext";
 
 const Nav = ({ setWindowsState }) => {
   const [activeMenu, setActiveMenu] = useState(null);
   const navRef = useRef(null);
+  const { reboot } = useLoader();
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -25,6 +27,11 @@ const Nav = ({ setWindowsState }) => {
       setWindowsState((state) => ({ ...state, [name]: true }));
     }
     setActiveMenu(null);
+  };
+
+  const handleRestart = () => {
+    setActiveMenu(null);
+    reboot();
   };
 
   return (
@@ -61,6 +68,10 @@ const Nav = ({ setWindowsState }) => {
                 }
               >
                 Portfolio Source Code
+              </div>
+              <div className="dropdown-divider"></div>
+              <div className="dropdown-item" onClick={handleRestart}>
+                Restart macOS...
               </div>
             </div>
           )}

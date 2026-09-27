@@ -1,0 +1,348 @@
+/* ==========================================================================
+   macOS Universal Loader System Styles
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. System Boot Loader (Full Screen macOS Startup Screen)
+   -------------------------------------------------------------------------- */
+.macos-boot-screen {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000000;
+  z-index: 999999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  user-select: none;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display",
+    "Helvetica Neue", Helvetica, Arial, sans-serif;
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.6s ease;
+
+  &.fade-out {
+    opacity: 0;
+    transform: scale(1.04);
+    pointer-events: none;
+  }
+
+  .boot-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 480px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+    padding-bottom: 2rem;
+  }
+
+  /* Apple Logo with subtle breathing luminescence */
+  .apple-logo-wrapper {
+    margin-bottom: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    filter: drop-shadow(0 0 24px rgba(255, 255, 255, 0.18));
+    animation: appleGlow 3s ease-in-out infinite alternate;
+
+    svg {
+      width: 76px;
+      height: 76px;
+      fill: #ffffff;
+    }
+  }
+
+  /* Authentic macOS Progress Bar */
+  .progress-container {
+    width: 240px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 999px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.6), 0 0 12px rgba(255, 255, 255, 0.05);
+
+    .progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, #ffffff 0%, #e0e0e0 100%);
+      border-radius: 999px;
+      transition: width 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+      position: relative;
+      box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 15px;
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 100%);
+        border-radius: 999px;
+      }
+    }
+  }
+
+  /* Boot Status and Meta Info */
+  .boot-meta {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .boot-status {
+    font-size: 0.78rem;
+    color: rgba(255, 255, 255, 0.65);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    min-height: 1.2rem;
+    transition: opacity 0.2s ease;
+  }
+
+  .boot-percentage {
+    font-size: 0.72rem;
+    color: rgba(255, 255, 255, 0.35);
+    font-variant-numeric: tabular-nums;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+  }
+
+  /* Skip hint */
+  .skip-prompt {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: rgba(255, 255, 255, 0.55);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.16);
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.25);
+      transform: translateX(-50%) translateY(-1px);
+    }
+
+    kbd {
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 4px;
+      padding: 1px 5px;
+      font-size: 0.7rem;
+      font-family: inherit;
+      color: #fff;
+    }
+  }
+}
+
+@keyframes appleGlow {
+  0% {
+    filter: drop-shadow(0 0 16px rgba(255, 255, 255, 0.15));
+    opacity: 0.92;
+  }
+  100% {
+    filter: drop-shadow(0 0 28px rgba(255, 255, 255, 0.3));
+    opacity: 1;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   2. macOS 12-Segment Radial Spinner (Native macOS Style)
+   -------------------------------------------------------------------------- */
+.macos-spinner {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  .spinner-wheel {
+    position: relative;
+    display: inline-block;
+
+    &.sm {
+      width: 18px;
+      height: 18px;
+    }
+    &.md {
+      width: 28px;
+      height: 28px;
+    }
+    &.lg {
+      width: 42px;
+      height: 42px;
+    }
+    &.xl {
+      width: 60px;
+      height: 60px;
+    }
+
+    .blade {
+      position: absolute;
+      left: 44.5%;
+      top: 0;
+      width: 11%;
+      height: 28%;
+      background-color: currentColor;
+      border-radius: 999px;
+      transform-origin: 50% 178%;
+      opacity: 0.15;
+      animation: macosBladeFade 1s linear infinite;
+    }
+
+    /* 12 radial blades positioned at 30 deg increments */
+    .blade:nth-child(1)  { transform: rotate(0deg);   animation-delay: 0s; }
+    .blade:nth-child(2)  { transform: rotate(30deg);  animation-delay: -0.9167s; }
+    .blade:nth-child(3)  { transform: rotate(60deg);  animation-delay: -0.8333s; }
+    .blade:nth-child(4)  { transform: rotate(90deg);  animation-delay: -0.75s; }
+    .blade:nth-child(5)  { transform: rotate(120deg); animation-delay: -0.6667s; }
+    .blade:nth-child(6)  { transform: rotate(150deg); animation-delay: -0.5833s; }
+    .blade:nth-child(7)  { transform: rotate(180deg); animation-delay: -0.5s; }
+    .blade:nth-child(8)  { transform: rotate(210deg); animation-delay: -0.4167s; }
+    .blade:nth-child(9)  { transform: rotate(240deg); animation-delay: -0.3333s; }
+    .blade:nth-child(10) { transform: rotate(270deg); animation-delay: -0.25s; }
+    .blade:nth-child(11) { transform: rotate(300deg); animation-delay: -0.1667s; }
+    .blade:nth-child(12) { transform: rotate(330deg); animation-delay: -0.0833s; }
+  }
+
+  .spinner-text {
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+    letter-spacing: -0.01em;
+  }
+}
+
+@keyframes macosBladeFade {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.15;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   3. Global Modal/Window Loading Overlay
+   -------------------------------------------------------------------------- */
+.universal-loader-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(18, 18, 22, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  border-radius: inherit;
+  transition: all 0.25s ease;
+
+  .loader-card {
+    background: rgba(30, 30, 35, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+    padding: 24px 32px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    color: #ffffff;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   4. Glassmorphic Skeleton Shimmer Loader
+   -------------------------------------------------------------------------- */
+.skeleton-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.04) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.04) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmerMove 1.8s infinite ease-in-out;
+  border-radius: 8px;
+}
+
+@keyframes shimmerMove {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.card-skeleton-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+  padding: 1.5rem;
+  width: 100%;
+
+  .card-skeleton {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    overflow: hidden;
+    height: 380px;
+    display: flex;
+    flex-direction: column;
+
+    .skeleton-img {
+      width: 100%;
+      height: 170px;
+    }
+
+    .skeleton-body {
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      flex: 1;
+
+      .skeleton-title {
+        height: 22px;
+        width: 70%;
+      }
+      .skeleton-desc {
+        height: 14px;
+        width: 100%;
+      }
+      .skeleton-desc-sub {
+        height: 14px;
+        width: 85%;
+      }
+      .skeleton-tags {
+        display: flex;
+        gap: 6px;
+        margin-top: auto;
+        .skeleton-tag {
+          height: 20px;
+          width: 50px;
+          border-radius: 12px;
+        }
+      }
+    }
+  }
+}

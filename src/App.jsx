@@ -7,8 +7,10 @@ import Note from "./components/windows/Note";
 import Resume from "./components/windows/Resume";
 import Spotify from "./components/windows/Spotify";
 import Cli from "./components/windows/Cli";
+import UniversalLoader from "./components/loader/UniversalLoader";
+import { LoaderProvider } from "./components/loader/LoaderContext";
 
-function App() {
+function DesktopContent() {
   const [windowsState, setWindowsState] = useState({
     github: false,
     note: false,
@@ -34,6 +36,7 @@ function App() {
 
   return (
     <main>
+      <UniversalLoader mode="boot" />
       <Nav setWindowsState={setWindowsState} />
       <Dock windowsState={windowsState} setWindowsState={setWindowsState} />
 
@@ -82,6 +85,14 @@ function App() {
         />
       )}
     </main>
+  );
+}
+
+function App() {
+  return (
+    <LoaderProvider>
+      <DesktopContent />
+    </LoaderProvider>
   );
 }
 

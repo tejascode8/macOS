@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo } from "react";
 import defaultGithubData from "../../assets/github.json";
 import MacWindow from "./MacWindow";
+import UniversalLoader from "../loader/UniversalLoader";
 import "./github.scss";
 
 // Curated metadata dictionary to enrich GitHub repos with high-res thumbnails and details
@@ -453,7 +454,9 @@ const Github = ({ windowName, setWindowsState, zIndex, onFocus }) => {
 
         {/* Repositories Cards Grid */}
         <div className="cards">
-          {filteredProjects.length > 0 ? (
+          {loading ? (
+            <UniversalLoader mode="skeleton" count={6} />
+          ) : filteredProjects.length > 0 ? (
             filteredProjects.map((project) => <GitCard key={project.id || project.name} data={project} />)
           ) : (
             <div className="no-results">

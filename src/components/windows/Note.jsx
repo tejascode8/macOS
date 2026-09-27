@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { atelierDuneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import MacWindow from "./MacWindow";
+import UniversalLoader from "../loader/UniversalLoader";
 import "./note.scss";
 
 const Note = ({ windowName, setWindowsState, zIndex, onFocus }) => {
@@ -82,8 +83,8 @@ const Note = ({ windowName, setWindowsState, zIndex, onFocus }) => {
               {markdown}
             </SyntaxHighlighter>
           ) : (
-            <div className="loading-state">
-              <p>Loading profile.config.ts...</p>
+            <div className="loading-state" style={{ minHeight: "300px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <UniversalLoader mode="spinner" size="lg" text="Loading profile.config.ts..." />
             </div>
           )}
         </div>
