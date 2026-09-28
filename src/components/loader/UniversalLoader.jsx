@@ -106,7 +106,7 @@ export const BootLoader = () => {
         </div>
 
         {/* Click/Key Skip Action */}
-        <button
+        {/* <button
           className="skip-prompt"
           onClick={skipBoot}
           title="Skip boot animation"
@@ -115,7 +115,7 @@ export const BootLoader = () => {
           <span>Click or press</span>
           <kbd>Space</kbd>
           <span>to skip</span>
-        </button>
+        </button> */}
       </div>
     </div>
   );
